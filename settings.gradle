@@ -8,3 +8,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "WhackAMole"
 include ':app'
+include ':sqldata'

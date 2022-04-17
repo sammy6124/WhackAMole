@@ -17,6 +17,9 @@ public class GameMode {
     public static int iCDT = 60;
     public int iTime = 0;
 
+    public static int iVitality_Max = 3;
+    public static int iVitality = iVitality_Max;
+
     Thread model_Normal = new Thread(new Runnable() {
         @Override
         public void run() {
@@ -62,6 +65,8 @@ public class GameMode {
                 if(GamePage.iCount >= iThreshold) {
                     GamePage.iLevel++;
                     GamePage.seteLevel(GamePage.iLevel);
+                } else{
+                    GamePage.tLife.setText(--iVitality);
                 }
                 GamePage.setStartButton("VISIBLE");
             }

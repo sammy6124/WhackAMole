@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".GamePage">
+    tools:context=".GamePage"
+    android:background="@drawable/background1">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -55,6 +56,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/timeid"
+            android:text="0"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="      Life : "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lifeid"
             android:text="0"/>
         <!--        <Button-->
         <!--            android:layout_width="wrap_content"-->
@@ -292,5 +302,22 @@
             android:visibility="invisible"
             android:onClick="Button_OnClick"/>
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+<!--        <com.google.android.gms.ads.AdView-->
+<!--            android:id="@+id/adView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            app:adSize="BANNER"-->
+<!--            app:adUnitId="ca-app-pub-3940256099942544/6300978111">-->
+<!--        </com.google.android.gms.ads.AdView>-->
+
+    </RelativeLayout>
 
 </LinearLayout>

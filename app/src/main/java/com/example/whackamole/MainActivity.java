@@ -2,6 +2,7 @@ package com.example.whackamole;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -86,7 +87,8 @@ public class MainActivity extends AppCompatActivity {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
-                Log.d(sTag, "Token: "+account.getIdToken());
+//                String str = "Token: " + account.getEmail();
+//                btChangepage.setText(str);
                 googleLoninState(sLogin);
                 btChangepage.setText(account.getDisplayName() + " start");
 

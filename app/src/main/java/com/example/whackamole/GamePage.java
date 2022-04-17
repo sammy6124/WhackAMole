@@ -2,6 +2,8 @@ package com.example.whackamole;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
@@ -10,6 +12,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+//import com.google.android.gms.ads.AdListener;
+//import com.google.android.gms.ads.AdRequest;
+//import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 
@@ -23,6 +29,8 @@ public class GamePage extends AppCompatActivity {
     private TextView tCountNumber;
     private static EditText eLevel;
     private static TextView tTime;
+    public static TextView tLife;
+//    private static AdView adv;
 
     public static int iCount = 0;
     public static int iLevel = 0;
@@ -30,12 +38,12 @@ public class GamePage extends AppCompatActivity {
     public static Handler mHandler;
 
     static GameMode gamemode;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.i(sTag,"onCreate start");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_page);
-
         mHandler = new Handler();
 
         tCountNumber = (TextView)findViewById(R.id.countnumberid);
@@ -43,8 +51,10 @@ public class GamePage extends AppCompatActivity {
         bRunGame = (Button)findViewById(R.id.rungameId);
         eLevel = (EditText)findViewById(R.id.level_id);
         tTime = (TextView)findViewById(R.id.timeid);
+        tLife = (TextView)findViewById(R.id.lifeid);
         gamemode = new GameMode();
 
+//        initBannerAD();
         initButton();
         Log.i(sTag,"onCreate end");
     }
@@ -84,14 +94,17 @@ public class GamePage extends AppCompatActivity {
     }
 
     public void RunGame_OnClick(View view){
-        bRunGame.setVisibility(View.INVISIBLE);
-        iCount = 0;
-        iLevel = Integer.parseInt(String.valueOf(eLevel.getText()));
+        if(GameMode.iVitality>0) {
+            bRunGame.setVisibility(View.INVISIBLE);
+            iCount = 0;
+            iLevel = Integer.parseInt(String.valueOf(eLevel.getText()));
 
-        Thread model = new Thread(gamemode.model_Normal);
+            Thread model = new Thread(gamemode.model_Normal);
 
-        cdt.start();
-        model.start();
+            cdt.start();
+            model.start();
+        } else{
+        }
     }
 
     public void Button_OnClick(View view){
@@ -172,4 +185,23 @@ public class GamePage extends AppCompatActivity {
             seteTime("0");
         }
     };
+
+    private void initBannerAD(){
+//        adv = (AdView)findViewById(R.id.adView);
+
+//        AdRequest adr = new AdRequest.Builder().build();
+//        adv.loadAd(adr);
+//        adv.setAdListener(new AdListener() {
+//            @Override
+//            public void onAdOpened(){ //load success
+//
+//            }
+//            public void onAdLoaded(){ //load fail
+//
+//            }
+//            public void onAdFailedToLoad(int errorCode){
+//
+//            }
+//        });
+    }
 }
